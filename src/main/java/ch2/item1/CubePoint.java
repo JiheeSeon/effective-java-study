@@ -4,7 +4,7 @@ public class CubePoint implements Point {
     private int y = 0;
     private int x = 0;
     private int z = 0;
-    private static CubePoint cubeCenter = new CubePoint(0, 0, 0);
+    private static final CubePoint cubeCenter = new CubePoint(0, 0, 0);
 
     private CubePoint(int y, int x, int z) {
         this.y = y;
@@ -12,12 +12,15 @@ public class CubePoint implements Point {
         this.z = z;
     }
 
-    public static CubePoint valueOf(int y, int x, int z) {
-        return y == 0 && x == 0 && z == 0 ? cubeCenter : new CubePoint(y, x, z);
-    }
-
     @Override
     public String toString() {
         return "this point's y : " + y + " and x : " + x + " and z : " + z + " ";
     }
+
+    public static Point valueOf(int y, int x, int z) {
+        return x == 0 && y == 0 && z == 0 ?  cubeCenter:  new CubePoint(y, x, z);
+    }
+
+    @Override
+    public double average() { return (x + y + z) / 3.0;}
 }

@@ -12,5 +12,3 @@ class Points {
         return CubePoint.valueOf(y, x, z);
     }
 }
-
-
