@@ -9,6 +9,8 @@ public abstract class Pizza {
     final Set<Topping> toppings;
 
     abstract static class Builder<T extends Builder<T>>{
+        // 재귀적 타입 한정 -> 나를 상속받고 자기자신을 제네릭 파라미터로 준 애만 허용할래
+        // 하위 클래스의 타입을 검증하기 위한 제네릭, 자식 클래스에서는 해당 제네릭을 사용하지 않음.
         EnumSet<Topping> toppings = EnumSet.noneOf(Topping.class);
 
         public T addTopping(Topping topping){
